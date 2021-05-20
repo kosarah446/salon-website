@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Overpass:100,400,700,800,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="hairsalon.css">
+<!--   <script src="home.js"></script> -->
+  <title>Services | Jean Clement</title>
+  <script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark">
+    <a id="navbar-title" href="hairsalonhome.html">JEAN CLEMENT</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 justify-content-end">
+        <li class="nav-item ">
+          <a class="nav-link und" href="salon.html">SALON</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link und active" id = "und-services" href="services.html">SERVICES<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link und" id = "und-gallery" href="gallery.html">GALLERY</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link und" id = "und-locations" href="locations.html">LOCATIONS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link und" id = "und-bookonline" href="bookonline.html">BOOK ONLINE</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="services-div">
+    <div class="carousel-inner">
+      <div class="services-banner">
+        <img src="images/homebanner.JPG" class="d-block w-100" alt="homebanner">
+        <div id="services-title"><h1>Browse our</h1></div>
+        <div id="services-subtitle"><em><strong>Services</strong></em></div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="services-container-fluid">
+  <div class="row-services">
+    <div class="column-services">
+      <div class = "service-name"><h1>Haircuts</h1></div>
+      <div class="container-service">
+        <div class="row">
+          <div class="col col-12 col-md-6 row-items"><p> 
+          Hair cut / Blow Dry : $280 <br>
+          Hair cut men blow : $170 € <br>
+          Dry Short from : $170 € <br>
+          Dry Long from : $190 € <br>
+          Up do Short from : $220 € <br>
+          Up do Long from : $240 € <br>
+          </p></div>
+          <div class="col col-12 col-md-6 row-items"><p>          Haircut Brushing : 165 € <br>
+          Brushing Haircut Man : 105 € <br>
+          Blow dry Short from : 75 € <br>
+          Blow dry Long from : 95 € <br>
+          Blow dry after treatments: 50 € <br>
+          Up do Short from : 150 € <br>
+          Up do Long from : 180 € <br>
+          </p></div>
+        </div></div>
+      </div>
+      <div class="column-services">
+        <div class = "service-name"><h1>Colouring and Treatment</h1></div>
+        <div class="container-service">
+          <div class="row">
+            <div class="col col-12 col-md-6 row-items"><p> 
+              Intensive Restructuring : 50 € <br>
+              Intensive Moisture Treatment : 50 € <br>
+              Tokio Treatment Short (60 min) : 100 € <br>
+              Tokio Treatment Medium (60 min) : 125 € <br>
+              Tokio Treatment Long (60 min) : 150 € <br>
+              Caviar Treatment (25 min) : 50 € <br>
+              Caviar Treatment (45 min) : 80 € <br>
+              Keratin Treatment Short : 200 € <br>
+              Keratin Treatment Medium : 300 € <br>
+              Keratin Treatment Long : 450 € <br>
+              Brazilian Treatment Short : 300 € <br>
+              Brazilian Treatment Medium : 300 € <br>
+              Brazilian Treatment Long : 650 € <br>
+              Blow dry after treatment or massage add : 50 € <br>
+              Mini retouch : 100 € <br>
+              Tint single process colour starting from : 165 € <br>
+            </p></div>
+            <div class="col col-12 col-md-6 row-items"><p> 
+              Men's Colour : 120 € <br>
+              Tint and Balayage from : 250 € <br> 
+              Balayage Short : 170 € <br>
+              Balayage Half-Head : 130 € <br>
+              Balayage Medium : 190 € <br>
+              Balayage Long : 220 € <br>
+              Highlights Short : 220 € <br>
+              Highlights Half-Head : 165 € <br>
+              Highlights Medium : 280 € <br>
+              Highlights Long : 320 € <br>
+              Toner : 120 € <br>
+              Relaxer Short : 140 € <br>
+              Relaxer Medium : 165 € <br>
+              Relaxer Long : 220 € <br>
+              Relaxer Men : 110 € <br>
+              Color Stripping : 220 € <br>
+            </p></div>
+          </div></div>
+        </div>
+        <div class="column-services">
+          <div class = "service-name"><h1>Other Speciality Service</h1></div>
+          <div class="container-service">
+            <div class="row">
+              <div class="col col-12 col-md-6 row-items"><p> 
+                Absolute session (25 min) : 55 € <br>
+                Intensive session (25 min) : 100 € <br>
+                Hot oil treatment (30 min) : 50 € <br>
+                Hot oil treatment (60 min) : 100 € <br>
+                Manucure : 65 € <br>
+                Manucure Men : 65 € <br>
+                French Manucure : 70 € <br>
+                Manucure vernis semi permanent : 115 € <br>
+                Full set of gel nails : 135 € <br>
+              </p></div>
+              <div class="col col-12 col-md-6 row-items"><p> 
+                Gel Fill : 75 € <br>
+                Nail repair (per nail) : 8 € <br>
+                Revarnish : 35 € <br>
+                Hand Treatment: Sea salt oil peeling : 20 € <br>
+                Beauté des pieds : 85 € <br>
+                French Beauté des pieds : 105 € <br>
+                Vernis semi permanent : 135 € <br>
+                Full set of gel nails : 135 € <br>
+                Foot treatment: Sea salt oil peeling : 20 € <br>
+              </p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-services">Copyright © Jean Clement 2019</div>
+
+
+  </body>
+  </html>
