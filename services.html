@@ -37,7 +37,7 @@
           <a class="nav-link und" id = "und-locations" href="locations.html">LOCATIONS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link und" id = "und-bookonline" href="bookonline.html">BOOK ONLINE</a>
+          <a class="nav-link und" id = "und-bookonline" href="bookonline.php">BOOK ONLINE</a>
         </li>
       </ul>
     </div>
@@ -67,8 +67,9 @@
           Dry Long from : $190 € <br>
           Up do Short from : $220 € <br>
           Up do Long from : $240 € <br>
+          Haircut Brushing : 165 € <br>
           </p></div>
-          <div class="col col-12 col-md-6 row-items"><p>          Haircut Brushing : 165 € <br>
+          <div class="col col-12 col-md-6 row-items"><p>          
           Brushing Haircut Man : 105 € <br>
           Blow dry Short from : 75 € <br>
           Blow dry Long from : 95 € <br>
@@ -88,34 +89,21 @@
               Tokio Treatment Short (60 min) : 100 € <br>
               Tokio Treatment Medium (60 min) : 125 € <br>
               Tokio Treatment Long (60 min) : 150 € <br>
-              Caviar Treatment (25 min) : 50 € <br>
-              Caviar Treatment (45 min) : 80 € <br>
               Keratin Treatment Short : 200 € <br>
               Keratin Treatment Medium : 300 € <br>
               Keratin Treatment Long : 450 € <br>
               Brazilian Treatment Short : 300 € <br>
               Brazilian Treatment Medium : 300 € <br>
-              Brazilian Treatment Long : 650 € <br>
-              Blow dry after treatment or massage add : 50 € <br>
-              Mini retouch : 100 € <br>
-              Tint single process colour starting from : 165 € <br>
             </p></div>
             <div class="col col-12 col-md-6 row-items"><p> 
+              Brazilian Treatment Long : 650 € <br>
+              Mini retouch : 100 € <br>
               Men's Colour : 120 € <br>
-              Tint and Balayage from : 250 € <br> 
-              Balayage Short : 170 € <br>
-              Balayage Half-Head : 130 € <br>
-              Balayage Medium : 190 € <br>
-              Balayage Long : 220 € <br>
               Highlights Short : 220 € <br>
               Highlights Half-Head : 165 € <br>
               Highlights Medium : 280 € <br>
               Highlights Long : 320 € <br>
               Toner : 120 € <br>
-              Relaxer Short : 140 € <br>
-              Relaxer Medium : 165 € <br>
-              Relaxer Long : 220 € <br>
-              Relaxer Men : 110 € <br>
               Color Stripping : 220 € <br>
             </p></div>
           </div></div>
@@ -129,22 +117,16 @@
                 Intensive session (25 min) : 100 € <br>
                 Hot oil treatment (30 min) : 50 € <br>
                 Hot oil treatment (60 min) : 100 € <br>
-                Manucure : 65 € <br>
-                Manucure Men : 65 € <br>
-                French Manucure : 70 € <br>
-                Manucure vernis semi permanent : 115 € <br>
-                Full set of gel nails : 135 € <br>
+                Manicure : 65 € <br>
+                French Manicure : 70 € <br>
               </p></div>
               <div class="col col-12 col-md-6 row-items"><p> 
+                Manucure vernis semi permanent : 115 € <br>
+                Full set of gel nails : 135 € <br>
                 Gel Fill : 75 € <br>
                 Nail repair (per nail) : 8 € <br>
                 Revarnish : 35 € <br>
                 Hand Treatment: Sea salt oil peeling : 20 € <br>
-                Beauté des pieds : 85 € <br>
-                French Beauté des pieds : 105 € <br>
-                Vernis semi permanent : 135 € <br>
-                Full set of gel nails : 135 € <br>
-                Foot treatment: Sea salt oil peeling : 20 € <br>
               </p></div>
             </div>
           </div>
@@ -157,3 +139,56 @@
 
   </body>
   </html>
+
+
+    <div class="row mt-3">
+      <div class="col-4 text-right labels">Location:</div>
+      <div class="col-8">
+                <!-- PHP Output Here -->
+<?php
+
+        if(isset($_POST["location_id"]) && !empty($_POST["location_id"])){
+
+          $sql_locations = "SELECT * FROM locations WHERE locations.id = " . $_POST["location_id"];
+          $results_locations = $mysqli->query($sql_locations);
+          if ( $results_locations == false ) {
+            echo $mysqli->error;
+            exit();
+          }
+
+
+          echo $results_locations->fetch_assoc()['location'];
+        }
+        else {
+          echo "<div class = 'text-danger'>Not provided</div>";
+        }
+
+        ?>
+      </div>
+    </div> <!-- .row -->
+
+    <div class="row mt-3">
+      <div class="col-4 text-right labels">Service:</div>
+      <div class="col-8">
+        <!-- PHP Output Here -->
+          <?php
+
+        if(isset($_POST["service_id"]) && !empty($_POST["service_id"])){
+
+            $sql_services = "SELECT * FROM services WHERE services.id = " . $_POST["service_id"];;
+            $results_services = $mysqli->query($sql_services);
+            if ( $results_services == false ) {
+              echo $mysqli->error;
+              exit();
+            }
+
+          echo $results_services->fetch_assoc()['service'];
+        }
+        else {
+          echo "<div class = 'text-danger'>Not provided</div>";
+        }
+
+        ?>
+
+      </div>
+    </div> <!-- .row -->

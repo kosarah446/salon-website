@@ -35,7 +35,7 @@
 					<a class="nav-link und active" id = "und-locations" href="locations.html">LOCATIONS<span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link und" id = "und-bookonline" href="bookonline.html">BOOK ONLINE</a>
+					<a class="nav-link und" id = "und-bookonline" href="bookonline.php">BOOK ONLINE</a>
 				</li>
 			</ul>
 		</div>
@@ -52,24 +52,111 @@
 	</div>
 
 	<div class="container">
+  <div class = "row" id = "row-locations">
+  	<div class = "col col-md-12">
+  		<div id="map_wrapper">
+    <div id="map_canvas" class="mapping"></div>
+</div>
+  		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdNY7ppLMd4n5sqAa-sQqHXzjUL4MoJJY&callback=initMap"
+  type="text/javascript"></script>
+  		<script>
+      jQuery(function($) {
+    // Asynchronously Load the map API 
+    var script = document.createElement('script');
+    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAdNY7ppLMd4n5sqAa-sQqHXzjUL4MoJJY&callback=initMap";
+    document.body.appendChild(script);
+});
+
+
+
+      function initMap() {
+    	var map;
+	    var bounds = new google.maps.LatLngBounds();
+	    var mapOptions = {
+	        mapTypeId: 'roadmap'
+	    };
+                    
+    // Display a map on the page
+    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+    map.setTilt(45);
+        
+    // Multiple Markers
+    var markers = [
+        ['Saint-Honoré, Paris', 48.865295, 2.329698],
+        ['Le Marais, Paris', 48.860968, 2.354503],
+        ['Palais Garnier, Paris', 48.875874, 2.333884]
+    ];
+             
+     // Info Window Content
+    var infoWindowContent = [
+        ['<div class="info_content">' +
+        '<h5>Saint-Honoré</h5>' +
+               '</div>'],
+        ['<div class="info_content">' +
+        '<h5>Le Marais</h5>' +
+               '</div>'],
+        ['<div class="info_content">' +
+        '<h5>Palais Garnier</h5>' +
+        '</div>']
+    ];           
+        
+    // Display multiple markers on a map
+    var infoWindow = new google.maps.InfoWindow(), marker, i;
+    
+    // Loop through our array of markers & place each one on the map  
+    for( i = 0; i < markers.length; i++ ) {
+        var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+        bounds.extend(position);
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: markers[i][0]
+        });
+        
+        // Allow each marker to have an info window    
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                infoWindow.setContent(infoWindowContent[i][0]);
+                infoWindow.open(map, marker);
+            }
+        })(marker, i));
+
+        // Automatically center the map fitting all markers on the screen
+        map.fitBounds(bounds);
+    }
+
+    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+        this.setZoom(14);
+        google.maps.event.removeListener(boundsListener);
+    });
+    
+}
+
+    </script>
+
+  
+  	</div>
+  </div>
 		<div class="row" id = "row-locations">
 			<div class="col col-12 col-md-4 location-col">
-				<img src="images/location1.JPG" alt="loc1" class="rounded img-fluid location-image">
-				<div class = "name"><h1>Monaco</h1></div>
-				<h3>Place du Casino<br>98000, Monaco<br>+377 98 06 19 19</h3><p>Monday-Saturday 10:00-20:00<br>By appointment only</p>
+
+				<div class = "name"><h1>Saint-Honoré</h1></div>
+				<h3>205 Rue Saint-Honoré<br>75001 Paris, France<br>+33 826 25 32 35</h3><p>Monday-Saturday 10:00-21:00<br>By appointment only</p>
 			</div>
 		<div class="col col-12 col-md-4 location-col">
-			<img src="images/location3.JPG" alt="loc2" class="rounded img-fluid location-image">
-			<div class = "name"><h1>Milan</h1></div>
-			<h3>Torre Branca, Viale Luigi Camoens<br>20121 Milano MI, Italy<br>+39 02 311817</h3><p>Monday-Saturday 10:00-21:00<br>By appointment only</p>
+<!-- 			<img src="images/location3.JPG" alt="loc2" class="rounded img-fluid location-image"> -->
+			<div class = "name"><h1>Le Marais</h1></div>
+			<h3>3 Rue Geoffroy l'Angevin<br>75004 Paris, France<br>+33 1 45 80 17 48</h3><p>Monday-Saturday 10:00-21:00<br>By appointment only</p>
 		</div>
 		<div class="col col-12 col-md-4 location-col">
-			<img src="images/location5.JPG" alt="loc3" class="rounded img-fluid location-image">
-			<div class = "name"><h1>Paris</h1></div>
-			<h3>188 bis Rue de Rivoli<br>75001 Paris, France<br>+33 1 58 36 46 00</h3><p>Monday-Saturday 10:00-19:00<br>By appointment only<p>
+<!-- 			<img src="images/location5.JPG" alt="loc3" class="rounded img-fluid location-image"> -->
+			<div class = "name"><h1>Palais Garnier</h1></div>
+			<h3>60 Rue de la Victoire<br>75009 Paris, France<br>+33 1 43 25 65 03</h3><p>Monday-Saturday 10:00-21:00<br>By appointment only<p>
 			</div>
 		</div>
 	</div>
+
 
 	<div class="footer-locations">Copyright © Jean Clement 2019</div>
 

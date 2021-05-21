@@ -5,13 +5,20 @@ html, body{
 	font-family: 'Overpass', sans-serif;
 }
 
-#item1 img {
-	margin-bottom: -20%;
+.col-form-label{
+	color: #2C3E50;
 }
 
-#bookonline-div img{
-	margin-top: -40%;
+
+#map_wrapper {
+    height: 400px;
 }
+
+#map_canvas {
+    width: 100%;
+    height: 100%;
+}
+
 /*form styles*/
 #msform {
 	width: 90%;
@@ -37,7 +44,9 @@ html, body{
 	display: none;
 }
 /*inputs*/
-#msform input, #msform textarea {
+#msform input, 
+#msform textarea,
+#msform select {
 	padding: 15px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
@@ -76,10 +85,16 @@ html, body{
 	color: #666;
 	margin-bottom: 20px;
 }
+
+.link {
+	font-weight: normal;
+	font-size: 15px;
+	color: #666;
+	margin-bottom: 20px;
+}
 /*progressbar*/
 #progressbar {
 	margin-bottom: 30px;
-	margin-left: -8%;
 	overflow: hidden;
 	/*CSS counters to number the steps*/
 	counter-reset: step;
@@ -128,6 +143,18 @@ html, body{
 #progressbar li.active:before,  #progressbar li.active:after{
 	background: #f2ccc3;
 	color: white;
+}
+
+.locatepb{
+	margin-left: 15%;
+}
+
+#item1 img {
+	margin-bottom: -20%;
+}
+
+#bookonline-div img{
+	margin-top: -40%;
 }
 
 body {
@@ -199,9 +226,10 @@ figure:hover+span {
 	/*color: white;*/
 }
 
+
 #navbar-title {
 	color: white;
-	font-size: 25px;
+	font-size: 40px;
 	font-weight: 200;
 	text-decoration: none;
 }
@@ -213,14 +241,14 @@ figure:hover+span {
 /* active*/
 .navbar-dark .navbar-nav .active .nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
 	color: white;
-	font-size: 16px;
+	font-size: 20px;
 	font-weight: 200;
 }
 
 /*inactive */
 .navbar-dark .navbar-nav .nav-link {
 	color: white;
-	font-size: 16px;
+	font-size: 20px;
 }
 
 /* hover */
@@ -236,7 +264,6 @@ figure:hover+span {
 .navbar-nav {
 	width:100%;
 }
-
 .und {
 	position: relative;
 	display: block;
@@ -699,7 +726,7 @@ video {
 
 
 	#bio {
-		margin-top: 4%;
+		margin-top: 9%;
 		font-size: 19px;
 	}
 
@@ -755,7 +782,7 @@ video {
 @media (min-width: 992px) {
 
 	#msform {
-		width: 500px;
+		width: 650px;
 		transform: translate(10%, 25%);
 	}
 
@@ -1023,14 +1050,6 @@ video {
 		background-color: black;
 	}
 
-	#bio {
-		margin-top: 120px;
-		font-weight: 200;
-		font-size: 20px;
-		margin-right: 20px;
-
-	}
-
 	.column-services {
 		display: flex;
 		flex-direction: column;
@@ -1127,4 +1146,48 @@ video {
 		font-size: 25px;
 		left: 10%;
 	}
+
+		#msform input, 
+#msform textarea,
+#msform select {
+
+	font-size: 18px;
+}
+
+#progressbar li {
+
+	font-size: 14px;
+
+}
+
+#progressbar li:before {
+	font-size: 15px;
+}
+
+.fs-title {
+	font-size: 25px;
+}
+.fs-subtitle {
+
+	font-size: 15px;
+
+}
+
+
+	#bio {
+		margin-top: 120px;
+		font-weight: 200;
+		font-size: 25px;
+		margin-right: 20px;
+
+	}
+
+	#signature {
+		font-size: 30px;
+	}
+
+.booking-results {
+	width: 800px;
+}
+
 }
